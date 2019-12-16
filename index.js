@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-const server = require('./api/server')
+const server = require('./01-api/server')
 
 
 const PORT = process.env.PORT
