@@ -6,7 +6,9 @@ const bcrypt = require('bcryptjs')
 
 const Users = require('./users-model')
 
-router.get('/users', (req, res)=>{
+//Users.findUsers().then(res=> console.log(res))
+
+router.get('/', (req, res)=>{
     Users.findUsers()
     .then(users => {
         res.status(200).json(users)

@@ -6,7 +6,7 @@ const Users = require('../04-api-users/users-model');
 
 
 
-router.post('/register', (req, res) => {
+router.post('/', (req, res) => {
     let user = req.body;
 
     const hash = bcrypt.hashSync(user.password, 8);

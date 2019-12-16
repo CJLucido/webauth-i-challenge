@@ -8,7 +8,7 @@ module.exports = {
 }
 
 function add(userBody){
-    return db('users')
+    return db('registeredUsers')
             .insert(userBody, 'id')
             .then(ids => {
                 const [id] = ids;
@@ -19,12 +19,13 @@ function add(userBody){
 
 
 function findUsers(){
-    return db('users')
+    return db('registeredUsers')
             .select('id', 'username')
 }
 
 function findUsersBy(propertyValue){
-    return db('users')
+    return db('registeredUsers')
             .select('id', 'username', 'password')
             .where(propertyValue)
+            .first()
 }

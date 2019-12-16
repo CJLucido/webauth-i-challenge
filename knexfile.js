@@ -9,7 +9,7 @@ module.exports = {
       filename: './data/authZ.db3'
     },
     pool: {
-      afterCreate: (conn,done)=>{
+      afterCreate: (conn,done)=>{//make sure this is in production object too later
         conn.run('PRAGMA foreign_keys = ON', done)
       }
     },

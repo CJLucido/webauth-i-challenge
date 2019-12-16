@@ -7,7 +7,9 @@ const bcrypt = require('bcryptjs')
 const Users = require('../04-api-users/users-model')
 
 
-router.post('/login', (req,res)=>{
+//Users.findUsersBy({username: "wow", password: "nope"}).then(res=> console.log(res))
+
+router.post('/', (req,res)=>{
     let {username, password} = req.body;
 
     Users.findUsersBy({username})
