@@ -6,9 +6,13 @@ const bcrypt = require('bcryptjs')
 
 const Users = require('./users-model')
 
+
+//MIDDLEWARE
+const restricted = require('../03-api-auth/restricted-middleware')
+
 //Users.findUsers().then(res=> console.log(res))
 
-router.get('/', (req, res)=>{
+router.get('/', restricted, (req, res)=>{//don't forget that you've already stated that this is on the /users/ URL on api-router.js!!!
     Users.findUsers()
     .then(users => {
         res.status(200).json(users)
@@ -18,6 +22,6 @@ router.get('/', (req, res)=>{
     })
 })
 
-//function validateLoggedIn(){}
+
 
 module.exports = router;

@@ -23,3 +23,5 @@ router.post('/', (req, res) => {
 })
 
 module.exports = router;
+
+//we aren't authNing on registration, just hashing passwords
