@@ -14,7 +14,7 @@ router.use('/register', registerRouter)
 router.use('/login', authRouter)
 
 router.get('/', (req,res)=>{
-    res.json({api: "SOON"})
+    res.json({api: "api router running"})
 })
 
 
