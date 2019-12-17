@@ -1,6 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
+const cookieParser = require('cookie-parser')
 const sessions = require("express-session");
 const KnexSessionStore = require('connect-session-knex')(sessions);
 
@@ -12,6 +13,7 @@ const sessionConfig ={
   secret: process.env.SECRET,
   saveUninitialized: true, //should happen on an alert allow cookies
   resave: false,
+
 
   store: new KnexSessionStore({//DO NOT FORGET THE NEW KEYWORD, because you are getting back a...?
     knex,
@@ -35,5 +37,6 @@ module.exports = server => {
   server.use(helmet());
   server.use(express.json());
   server.use(cors());
+  server.use(cookieParser())
   server.use(sessions(sessionConfig))
 };
